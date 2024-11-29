@@ -49,6 +49,10 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor3)
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.viewmodel.navigation)
         }
     }
 }
