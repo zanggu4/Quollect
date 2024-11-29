@@ -19,7 +19,7 @@ fun SplashScreen(
     router: SplashRouter = koinInject()
 ) {
     LaunchedEffect(Unit) {
-        delay(3000)
+        delay(1000)
         router.startMain()
     }
 
