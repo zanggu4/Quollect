@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -37,6 +38,10 @@ fun App() {
                 }
             }
             GreetingView(text)
+            AsyncImage(
+                model = "https://cdn.pixabay.com/photo/2023/01/08/14/22/sample-7705346_640.jpg",
+                contentDescription = null,
+            )
         }
     }
 }

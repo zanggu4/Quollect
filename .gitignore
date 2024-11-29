@@ -280,4 +280,6 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+# Kotlin Multiplatform
+.kotlin/metadata/kotlinTransformedMetadataLibraries/*
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,swift,xcode,android,androidstudio
