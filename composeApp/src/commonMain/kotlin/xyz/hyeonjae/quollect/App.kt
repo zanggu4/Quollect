@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
 import xyz.hyeonjae.quollect.di.routerModules
+import xyz.hyeonjae.quollect.feature.main.MainScreen
 import xyz.hyeonjae.quollect.feature.splash.SplashScreen
 
 @Composable
@@ -20,8 +21,11 @@ fun App() {
     }) {
         MaterialTheme {
             NavHost(navController = navController, startDestination = "Splash") {
-                composable("Splash") {
+                composable(route = "Splash") {
                     SplashScreen()
+                }
+                composable(route = "Main") {
+                    MainScreen()
                 }
             }
         }
