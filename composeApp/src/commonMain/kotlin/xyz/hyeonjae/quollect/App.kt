@@ -2,6 +2,10 @@ package xyz.hyeonjae.quollect
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -15,6 +19,7 @@ import xyz.hyeonjae.quollect.feature.splash.SplashScreen
 @Preview
 fun App() {
     val navController = rememberNavController()
+    var isFavorite by remember { mutableStateOf(false) }
 
     KoinApplication(application = {
         modules(*routerModules(navController))
@@ -25,7 +30,14 @@ fun App() {
                     SplashScreen()
                 }
                 composable(route = "Main") {
-                    MainScreen()
+                    MainScreen(
+                        quote = "The journey of a thousand miles begins with a single step.",
+                        author = "Lao Tzu",
+                        isFavorite = isFavorite,
+                        onFavoriteClick = { isFavorite = !isFavorite },
+                        onShareClick = { /* 공유 기능 구현 */ },
+                        onAirbnbClick = { /* Airbnb 추천 로직 */ }
+                    )
                 }
             }
         }
