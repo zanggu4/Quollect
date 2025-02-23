@@ -13,6 +13,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
 import xyz.hyeonjae.quollect.di.routerModules
 import xyz.hyeonjae.quollect.di.supabase
+import xyz.hyeonjae.quollect.di.viewModels
 import xyz.hyeonjae.quollect.feature.main.MainScreen
 import xyz.hyeonjae.quollect.feature.splash.SplashScreen
 
@@ -23,7 +24,7 @@ fun App() {
     var isFavorite by remember { mutableStateOf(false) }
 
     KoinApplication(application = {
-        modules(*routerModules(navController), supabase())
+        modules(*routerModules(navController), *viewModels(), supabase())
     }) {
         MaterialTheme {
             NavHost(navController = navController, startDestination = "Splash") {
