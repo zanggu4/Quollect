@@ -12,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
 import xyz.hyeonjae.quollect.di.routerModules
+import xyz.hyeonjae.quollect.di.supabase
 import xyz.hyeonjae.quollect.feature.main.MainScreen
 import xyz.hyeonjae.quollect.feature.splash.SplashScreen
 
@@ -22,7 +23,7 @@ fun App() {
     var isFavorite by remember { mutableStateOf(false) }
 
     KoinApplication(application = {
-        modules(*routerModules(navController))
+        modules(*routerModules(navController), supabase())
     }) {
         MaterialTheme {
             NavHost(navController = navController, startDestination = "Splash") {
@@ -31,8 +32,6 @@ fun App() {
                 }
                 composable(route = "Main") {
                     MainScreen(
-                        quote = "The journey of a thousand miles begins with a single step.",
-                        author = "Lao Tzu",
                         isFavorite = isFavorite,
                         onFavoriteClick = { isFavorite = !isFavorite },
                         onShareClick = { /* 공유 기능 구현 */ },
